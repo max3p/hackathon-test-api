@@ -4,7 +4,7 @@ A simple API that answers any yes-or-no question.
 
 ## Base URL
 
-`https://your-api-domain.com`
+`hackathon-test-api-production.up.railway.app`
 
 ## Response Format
 
