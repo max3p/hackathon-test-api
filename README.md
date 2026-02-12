@@ -1,10 +1,14 @@
 # Yes/No Oracle API
 
-A simple API that answers any yes-or-no question.
+An AI-powered API that answers any yes-or-no question.
 
 ## Base URL
 
 `hackathon-test-api-production.up.railway.app`
+
+## Authentication
+
+Requires an `OPENAI_API_KEY` environment variable set on the server. No client-side authentication needed.
 
 ## Response Format
 
@@ -70,8 +74,8 @@ Content-Type: application/json
 
 **Response fields:**
 
-| Field    | Type   | Description                      |
-|----------|--------|----------------------------------|
+| Field      | Type   | Description                      |
+|------------|--------|----------------------------------|
 | `question` | string | The submitted question (trimmed) |
 | `answer`   | string | `"yes"` or `"no"`               |
 
@@ -88,6 +92,17 @@ Content-Type: application/json
 }
 ```
 
+**Not a yes/no question** `400 Bad Request`
+
+```json
+{
+  "success": false,
+  "error": {
+    "message": "That is not a yes-or-no question."
+  }
+}
+```
+
 **Malformed JSON** `400 Bad Request`
 
 ```json
@@ -95,6 +110,28 @@ Content-Type: application/json
   "success": false,
   "error": {
     "message": "Malformed JSON in request body."
+  }
+}
+```
+
+**Oracle unavailable or failed** `502 Bad Gateway`
+
+```json
+{
+  "success": false,
+  "error": {
+    "message": "Could not reach the oracle. Please try again."
+  }
+}
+```
+
+**Rate limited** `503 Service Unavailable`
+
+```json
+{
+  "success": false,
+  "error": {
+    "message": "Oracle is overwhelmed. Please try again later."
   }
 }
 ```

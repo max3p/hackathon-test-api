@@ -7,7 +7,7 @@ function errorHandler(err, req, res, next) {
     });
   }
 
-  console.error("Unhandled error:", err);
+  console.error("Unhandled error:", err.stack || err);
 
   const statusCode = err.status || err.statusCode || 500;
   res.status(statusCode).json({
