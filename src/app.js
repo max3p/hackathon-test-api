@@ -2,6 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const oracleRoutes = require("./routes/oracle");
 const errorHandler = require("./middleware/errorHandler");
+const scraperRoutes = require("./routes/scraper");
 
 const app = express();
 
@@ -13,6 +14,7 @@ app.get("/api/hello", (req, res) => {
 });
 
 app.use("/api/oracle", oracleRoutes);
+app.use("/api/scraper", scraperRoutes);
 
 app.use((req, res) => {
   res.status(404).json({
