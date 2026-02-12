@@ -1,7 +1,7 @@
 {
-  "name": "hackathon-prep",
+  "name": "yes-no-oracle",
   "version": "1.0.0",
-  "description": "",
+  "description": "A Yes/No Oracle API built with Express 5",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
@@ -11,6 +11,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "cors": "^2.8.6",
     "express": "^5.2.1"
   }
 }

@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(node -e:*)",
+      "Bash(git -C \"c:/Users/maxba/Documents/Code/Hackathon-Prep\" log --oneline -5)",
+      "Bash(npm install:*)"
+    ]
+  }
+}
